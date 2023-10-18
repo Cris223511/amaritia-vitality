@@ -87,20 +87,29 @@ menu.addEventListener("click", function () {
 # Navegador principal
 --------------------------------------------------------------*/
 
+// identificar la posición del scroll
+
+// const window2 = document.defaultView;
+
+// window2.addEventListener("scroll", () => {
+//   const scrollPositionY = window.scrollY;
+//   console.log(`Posición del scroll Y: ${scrollPositionY}px`);
+// });
+
 const btnInicio = document.querySelector('.navegador .botones a[href="#"]');
 const btnNoi = document.querySelector('.navegador .botones a[href="#noi"]');
 const btnGalleria = document.querySelector('.navegador .botones a[href="#galleria"]');
-const btnTestimonios = document.querySelector('.navegador .botones a[href="#testimonios"]');
+const btnTestimonios = document.querySelector('.navegador .botones a[href="#testimonianze"]');
 const btnPreguntas = document.querySelector('.navegador .botones a[href="#preguntas"]');
 const btnContattaci = document.querySelector('.navegador .botones a[href="#contattaci"]');
 
 const botones = [
   { btn: btnInicio, pos: [0, 400] },
-  { btn: btnNoi, pos: [400, 1600] },
-  { btn: btnGalleria, pos: [1600, 4700] },
-  { btn: btnTestimonios, pos: [4700, 5560] },
-  { btn: btnPreguntas, pos: [5560, 6340] },
-  { btn: btnContattaci, pos: [6340, Infinity] },
+  { btn: btnNoi, pos: [400, 2690] },
+  { btn: btnTestimonios, pos: [2690, 3400] },
+  { btn: btnPreguntas, pos: [3400, 4400] },
+  { btn: btnGalleria, pos: [4400, 5100] },
+  { btn: btnContattaci, pos: [5100, Infinity] },
 ];
 
 let btnActivo = btnInicio;
@@ -201,6 +210,53 @@ new Swiper(".testimonianze-slider", {
 });
 
 /*--------------------------------------------------------------
+# Sección preguntas frecuentes
+--------------------------------------------------------------*/
+
+const preguntas = document.querySelectorAll('.preguntas');
+let animating = false;
+
+preguntas.forEach((pregunta) => {
+  const tituloPregunta = pregunta.querySelector('.titulo-pregunta');
+  const respuesta = pregunta.querySelector('.respuesta');
+  respuesta.style.visibility = "hidden";
+
+  tituloPregunta.addEventListener('click', () => {
+    if (animating) return;
+    animating = true;
+
+    pregunta.classList.toggle('activa');
+    const alturaRealRespuesta = respuesta.scrollHeight;
+
+    if (!respuesta.style.maxHeight) {
+      respuesta.style.maxHeight = alturaRealRespuesta + 'px';
+      respuesta.style.visibility = "visible";
+      animating = false;
+    } else {
+      respuesta.style.maxHeight = null;
+      respuesta.addEventListener('transitionend', () => {
+        respuesta.style.visibility = "hidden";
+        animating = false;
+      }, { once: true });
+    }
+
+    preguntas.forEach((elemento) => {
+      if (pregunta !== elemento) {
+        elemento.classList.remove('activa');
+        if (elemento.querySelector('.respuesta').style.maxHeight) {
+          animating = true;
+          elemento.querySelector('.respuesta').addEventListener('transitionend', () => {
+            elemento.querySelector('.respuesta').style.visibility = "hidden";
+            animating = false;
+          }, { once: true });
+        }
+        elemento.querySelector('.respuesta').style.maxHeight = null;
+      }
+    });
+  });
+});
+
+/*--------------------------------------------------------------
 # Galleria (GLightbox)
 --------------------------------------------------------------*/
 
@@ -269,3 +325,34 @@ botonVerMenos.addEventListener('click', () => {
   }
   botonVerMas.classList.remove('d-none');
 });
+
+/*--------------------------------------------------------------
+# Sección contacto (lógica del formulario)
+--------------------------------------------------------------*/
+
+const formEs = document.querySelector("#form-es");
+const formEn = document.querySelector("#form-en");
+const buttonMailto = document.querySelector("#emailto");
+
+if (formEs != null)
+  formEs.addEventListener("submit", handleSubmitEs)
+if (formEn != null)
+  formEn.addEventListener("submit", handleSubmitEn)
+
+function handleSubmitEs(event) {
+  event.preventDefault();
+  const formData = new FormData(this);
+  // console.log(formData.get("name"));
+  buttonMailto.setAttribute("href", `mailto:amaritiavit_ventas@gmail.com?subject=${formData.get("subject")}&body=Hola Amaritia Vitality, mi nombre es ${formData.get("name")} y mi número de teléfono es: ${formData.get("cellphone")}. ${formData.get("message")}`)
+  buttonMailto.click();
+  window.location.href = "index.html";
+}
+
+function handleSubmitEn(event) {
+  event.preventDefault();
+  const formData = new FormData(this);
+  // console.log(formData.get("name"));
+  buttonMailto.setAttribute("href", `mailto:amaritiavit_ventas@gmail.com?subject=${formData.get("subject")}&body=Hello Amaritia Vitality, my name is ${formData.get("name")} and my phone number is: ${formData.get("cellphone")}. ${formData.get("message")}`)
+  buttonMailto.click();
+  window.location.href = "index.html";
+}

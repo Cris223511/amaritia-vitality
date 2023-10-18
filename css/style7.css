@@ -548,7 +548,7 @@ img {
 }
 
 .toggle a {
-  color: #262626;
+  color: var(--color-tertiary) !important;
   font-size: 24px;
   cursor: pointer;
 }
@@ -988,7 +988,7 @@ a.fr:before {
 .services .icon-box p {
   font-weight: 300;
   line-height: 24px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .services .icon-box:hover {
@@ -1104,7 +1104,7 @@ a.fr:before {
 .testimonianze .testimonial-item h3 {
   font-size: 18px;
   color: var(--color-tertiary);
-  font-weight: 700;
+  font-weight: 600;
   margin: 10px 0 5px 0;
 }
 
@@ -1117,7 +1117,7 @@ a.fr:before {
 
 .testimonianze .testimonial-item .quote-icon-left,
 .testimonianze .testimonial-item .quote-icon-right {
-  color: #badaf7;
+  color: #f8ab1262;
   font-size: 26px;
 }
 
@@ -1135,7 +1135,7 @@ a.fr:before {
 }
 
 .testimonianze .testimonial-item p {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 300;
   color: black;
   margin-bottom: 30px;
@@ -1182,11 +1182,86 @@ a.fr:before {
 }
 
 /*--------------------------------------------------------------
+# Preguntas frecuentes
+--------------------------------------------------------------*/
+
+.preguntas_frecuentes {
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+.preguntas_frecuentes .preguntas {
+  background: #fff;
+  padding: 10px 0px;
+  margin: 25px 0px;
+  border: 2px solid transparent;
+  transition: .3s ease all;
+  border-bottom: 2px var(--color-tertiary) solid;
+}
+
+.preguntas_frecuentes .titulo-pregunta {
+  font-size: var(--16-size);
+  font-weight: 500;
+  color: var(--color-secondary);
+  transition: .4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.preguntas_frecuentes .titulo-pregunta:hover {
+  color: var(--color-primary);
+  transition: .3s;
+}
+
+.preguntas_frecuentes .respuesta {
+  line-height: 25px;
+  max-height: 0;
+  opacity: 0;
+  font-size: var(--16-size);
+  font-weight: 300;
+  color: var(--color-secondary);
+  font-style: italic;
+  transition: .3s ease all;
+  margin-bottom: 10px;
+}
+
+.preguntas_frecuentes .respuesta a {
+  color: var(--color-primary);
+  font-weight: var(--weight-500);
+  background: none;
+  border-color: transparent;
+  text-decoration: underline var(--color-primary);
+  font-size: var(--16-size);
+}
+
+.preguntas_frecuentes i {
+  color: var(--color-primary);
+}
+
+.preguntas_frecuentes .activa .titulo-pregunta {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.preguntas_frecuentes .activa .respuesta {
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.preguntas_frecuentes .activa i {
+  transform: rotate(180deg);
+}
+
+/*--------------------------------------------------------------
 # Galleria
 --------------------------------------------------------------*/
 .galleria {
   padding-top: 150px;
-  padding-bottom: 150px;
+  padding-bottom: 50px;
 }
 
 .galleria .galleria-item {
@@ -1255,7 +1330,111 @@ a.fr:before {
 # Contacto
 --------------------------------------------------------------*/
 
+.contact {
+  padding-top: 150px;
+  padding-bottom: 200px;
+}
 
+.contact .heading h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.contact .heading h2 span {
+  color: var(--color-quinary);
+}
+
+.contact .heading p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #757575;
+  padding: 0;
+}
+
+.contact .form-control {
+  padding: 18px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  border: 0;
+  border-radius: 10px;
+  outline: none !important;
+  box-shadow: none !important;
+  border: 2px transparent solid !important;
+  transition: .5s;
+}
+
+.contact textarea {
+  transition: none !important;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder,
+.contact input,
+.contact textarea {
+  user-select: none !important;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border: 2px var(--color-tertiary) solid !important;
+}
+
+.contact .boton {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--color-tertiary);
+  color: #ffffff;
+}
+
+.contact .boton:hover {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.contact .title h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.contact .content .info {
+  margin-top: 30px;
+  cursor: default;
+}
+
+.contact .content .info:hover a {
+  color: var(--color-tertiary);
+}
+
+.contact .content .info i {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+  color: var(--color-primary);
+  text-align: center;
+  width: 20px;
+}
+
+.contact .content .info h4 {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contact .content .info h4 *:not(:has(a)) {
+  user-select: none;
+}
+
+.contact .content .info a {
+  font-size: 15px;
+  font-weight: 300;
+  color: #999999;
+  background: none;
+  border-color: transparent;
+  text-decoration: none;
+  font-style: italic;
+}
 
 /*--------------------------------------------------------------
   # Footer
