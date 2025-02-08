@@ -4,13 +4,12 @@
 
 <i>
     <p align="center">
-        This repository is dedicated to the development of a modern and user-friendly website for Amaritia Vitality, 
-        a small Peruvian company specializing in natural skincare and sun protection. The website is built using HTML, CSS, and JavaScript, 
-        ensuring a responsive and visually appealing design that effectively represents the brand's identity. 
-        With a focus on clean aesthetics and intuitive navigation, the site showcases Amaritia Vitality’s commitment to sustainability 
-        and innovation. The color scheme reflects the brand’s connection to nature, incorporating earthy and vibrant tones 
-        to enhance the visual experience. This project serves as an informative platform where customers can explore products, 
-        learn about the benefits of aguaje-based skincare, and engage with the company’s mission.
+        This repository is dedicated to developing a modern and user-friendly website for Amaritia Vitality, 
+        a small Peruvian company specializing in natural skincare and sun protection. Built with HTML, CSS, and JavaScript, 
+        the site features a responsive design that reflects the brand's identity. With a clean layout and intuitive navigation, 
+        it highlights Amaritia Vitality’s commitment to sustainability and innovation. The color scheme, inspired by nature, 
+        enhances the visual experience. This platform allows customers to explore products, discover the benefits of aguaje-based skincare, 
+        and connect with the company’s mission.
     </p>
 </i>
 
@@ -18,7 +17,7 @@
 
 <p align="center"><img width="120" src="https://user-images.githubusercontent.com/6661165/91657958-61b4fd00-eb00-11ea-9def-dc7ef5367e34.png" /></p>
 <h2 align="center">Socials</h2></p>
-<i><p align="center">We invite you to visit my social networks, I would really appreciate it.</p></i>
+<i><p align="center">I invite you to visit my social media, I would really appreciate it.</p></i>
   
 <p align="center">
 <a href="https://fb.com/cris223511" target="_blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="cris223511" height="30" width="40" /></a>
